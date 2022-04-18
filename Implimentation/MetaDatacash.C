@@ -33,3 +33,20 @@ function get(type, imageId) {
 }
 
 export { add, get };
+
+import myCustomProvider from './myCustomProvider';
+
+const priority = 100;
+cornerstone.metaData.addProvider(
+  myCustomProvider.get.bind(myCustomProvider),
+  priority
+);
+
+
+# //Retrieve this metaData
+
+// Retrieve this metaData
+const imagePlaneModule = cornerstone.metaData.get(
+  'scalingModule',
+  'scheme://imageId'
+);
